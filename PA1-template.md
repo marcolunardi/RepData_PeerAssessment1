@@ -98,7 +98,7 @@ report3
 ## [1] "Total number of rows containing missing values in the dataset= 2304"
 ```
 
-I decided to replace the steps missing values with the total number of steps mean, computed for the same 5-minute interval accross all other days.
+I decided to replace the steps missing values with the total number of steps (in average), computed for the same 5-minute interval accross all other days.
 The following R code creates a new dataset that is equal to the original, but with the missing data replaced according to the strategy described above.
 
 
