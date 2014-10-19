@@ -332,7 +332,7 @@ wkday &lt;- as.factor(weekdayend)
 compldatawd &lt;- cbind(compldata, wkday)
 </code></pre>
 
-<p>The following R code processes the new filled-in dataset to compute the average number of steps taken within each 5 minutes time interval of the day, and then it plots a panel plot containing the time series of these data, comparing the step patterns (in average) across weekdays versus weekend days.</p>
+<p>The following R code processes the new filled-in dataset to compute the average number of steps taken within each 5-minute time interval of the day, and then it plots a panel plot containing the time series of these data, comparing the step patterns (in average) across weekdays versus weekend days.</p>
 
 <pre><code class="r">compltimestepmean &lt;- ddply(compldatawd, .(wkday, interval), numcolwise(mean), drop=FALSE)
 g &lt;-ggplot(compltimestepmean, aes(x=interval, y=complsteps)) + geom_point(shape=1) 

@@ -160,7 +160,7 @@ wkday <- as.factor(weekdayend)
 compldatawd <- cbind(compldata, wkday)
 ```
 
-The following R code processes the new filled-in dataset to compute the average number of steps taken within each 5 minutes time interval of the day, and then it plots a panel plot containing the time series of these data, comparing the step patterns (in average) across weekdays versus weekend days.
+The following R code processes the new filled-in dataset to compute the average number of steps taken within each 5-minute time interval of the day, and then it plots a panel plot containing the time series of these data, comparing the step patterns (in average) across weekdays versus weekend days.
 
 
 ```r
