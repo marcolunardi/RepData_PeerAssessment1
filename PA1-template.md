@@ -57,7 +57,7 @@ The following R code processes data to compute the average number of steps taken
 
 ```r
 timestepmean <- ddply(nona, .(interval), numcolwise(mean), drop=FALSE)
-plot(timestepmean$interval, timestepmean$steps, col="red", xaxt="n",
+plot(timestepmean$interval, timestepmean$steps, type="n", col="red", xaxt="n",
      xlab="Time Intervals (every 5 minutes)", ylab="Average number of Steps")
 lines(timestepmean$interval, timestepmean$steps, type="l", col="red")
 axis(side=1, at=seq(0,2400,by=100))
@@ -165,13 +165,13 @@ The following R code processes the new filled-in dataset to compute the average 
 
 ```r
 compltimestepmean <- ddply(compldatawd, .(wkday, interval), numcolwise(mean), drop=FALSE)
-g <-ggplot(compltimestepmean, aes(x=interval, y=complsteps)) + geom_point(shape=1) 
+g <-ggplot(compltimestepmean, aes(x=interval, y=complsteps, color=factor(wkday)))
 g <- g + geom_line()
 g <- g + facet_grid(wkday ~ .)
 g <- g + scale_x_continuous(breaks=seq(0,2400,by=200))
-g <- g + labs(y = "Average number of Steps (missing Values replaced by imputed Values)")
+g <- g + labs(y = "Avg.number of Steps (missing Values replaced by imputed Values)")
 g <- g + labs(x = "Time Intervals (every 5 minutes)")
-g <- g + labs(title = "Average number of Steps by 5-minute Intervals: Weekdays vs Weekend")
+g <- g + labs(title = "Average Steps by 5-minute Intervals: Weekdays vs Weekend")
 print(g)
 ```
 
