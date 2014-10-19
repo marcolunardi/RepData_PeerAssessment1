@@ -98,7 +98,7 @@ report3
 ## [1] "Total number of rows containing missing values in the dataset= 2304"
 ```
 
-I decided to replace the steps missing values with the total number of steps (in average, and rounded to the nearest integer), computed for the same 5-minute interval accross all other days.
+I decided to replace the steps missing values with the total number of steps (in average, and rounded to the nearest integer), computed for the same 5-minute interval across all other days.
 The following R code creates a new dataset that is equal to the original, but with the missing data replaced according to the strategy above described.
 
 
@@ -137,7 +137,7 @@ report4
 ## [1] "Filled-in Dataset, total steps per day: Mean= 10765.64 , Median= 10762"
 ```
 
-The above values of mean and median are slightly lower but pretty close to those computed for the original dataset. The overall impact of imputing missing data is not quite evident. It clearly increases the frequencies of values around the mean, but the shape of the frequency distribution remains quite similar to that of the original dataset. 
+The above values of mean and median are slightly lower but pretty close to those computed for the original dataset. The overall impact on frequency distribution of imputing missing data is not much heavy. It clearly increases the frequencies of values around the mean, but the shape of the frequency distribution remains quite similar to that of the original dataset. 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
