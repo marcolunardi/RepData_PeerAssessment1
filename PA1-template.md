@@ -41,13 +41,13 @@ The following R code computes the mean and median total number of steps taken pe
 ```r
 daymean <- mean(daystepsum[,2])
 daymedian <- median(daystepsum[,2])
-report1 <- paste("Total steps per day: Mean=",daymean,
+report1 <- paste("Total steps per day: Mean=", round(daymean,2),
                  ", Median=",daymedian)
 report1
 ```
 
 ```
-## [1] "Total steps per day: Mean= 10766.1886792453 , Median= 10765"
+## [1] "Total steps per day: Mean= 10766.19 , Median= 10765"
 ```
 
 ## What is the average daily activity pattern?
@@ -98,12 +98,13 @@ report3
 ## [1] "Total number of rows containing missing values in the dataset= 2304"
 ```
 
-I decided to replace the steps missing values with the total number of steps (in average), computed for the same 5-minute interval accross all other days.
-The following R code creates a new dataset that is equal to the original, but with the missing data replaced according to the strategy described above.
+I decided to replace the steps missing values with the total number of steps (in average, and rounded to the nearest integer), computed for the same 5-minute interval accross all other days.
+The following R code creates a new dataset that is equal to the original, but with the missing data replaced according to the strategy above described.
 
 
 ```r
 impdata <- ddply(data, "interval", mutate, complsteps = impute(steps, mean))
+impdata$complsteps <- round(impdata$complsteps,0)
 drops <- "steps"
 compldata <- impdata[,!(names(impdata) %in% drops)]
 compldaystepsum <- ddply(compldata, .(date), numcolwise(sum), drop=FALSE)
@@ -127,17 +128,16 @@ The following R code computes the mean and median total number of steps taken ea
 ```r
 compldaymean <- mean(compldaystepsum[,3])
 compldaymedian <- median(compldaystepsum[,3])
-report4 <- paste("Filled-in Dataset, total steps per day: Mean=",compldaymean,
+report4 <- paste("Filled-in Dataset, total steps per day: Mean=",round(compldaymean,2),
                  ", Median=",compldaymedian)
 report4
 ```
 
 ```
-## [1] "Filled-in Dataset, total steps per day: Mean= 10766.1886792453 , Median= 10766.1886792453"
+## [1] "Filled-in Dataset, total steps per day: Mean= 10765.64 , Median= 10762"
 ```
 
-The above values of mean and median are very close to those computed for the original dataset. 
-The impact of imputing missing data is not quite evident. It increases the frequencies of values around the mean, but the shape of the frequency distribution is quite similar to that of the original dataset. 
+The above values of mean and median are slightly lower but pretty close to those computed for the original dataset. The overall impact of imputing missing data is not quite evident. It clearly increases the frequencies of values around the mean, but the shape of the frequency distribution remains quite similar to that of the original dataset. 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
