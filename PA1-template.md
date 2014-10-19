@@ -41,13 +41,13 @@ The following R code computes the mean and median total number of steps taken pe
 ```r
 daymean <- mean(daystepsum[,2])
 daymedian <- median(daystepsum[,2])
-report1 <- paste("Total steps per day: Mean=", round(daymean,2),
-                 ", Median=",daymedian)
+report1 <- paste("Total steps per day:  MEAN=", round(daymean,2),
+                 ", MEDIAN=",daymedian)
 report1
 ```
 
 ```
-## [1] "Total steps per day: Mean= 10766.19 , Median= 10765"
+## [1] "Total steps per day:  MEAN= 10766.19 , MEDIAN= 10765"
 ```
 
 ## What is the average daily activity pattern?
@@ -122,19 +122,19 @@ hist(y, col="light blue",
 
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
 
-The following R code computes the mean and median total number of steps taken each day for the new dataset containing the imputed values.
+The following R code computes the mean and median of total number of steps taken each day for the new dataset containing the imputed values.
 
 
 ```r
 compldaymean <- mean(compldaystepsum[,3])
 compldaymedian <- median(compldaystepsum[,3])
-report4 <- paste("Filled-in Dataset, total steps per day: Mean=",round(compldaymean,2),
-                 ", Median=",compldaymedian)
+report4 <- paste("Filled-in Dataset, total steps per day:  MEAN=",round(compldaymean,2),
+                 ", MEDIAN=",compldaymedian)
 report4
 ```
 
 ```
-## [1] "Filled-in Dataset, total steps per day: Mean= 10765.64 , Median= 10762"
+## [1] "Filled-in Dataset, total steps per day:  MEAN= 10765.64 , MEDIAN= 10762"
 ```
 
 The above values of mean and median are slightly lower but pretty close to those computed for the original dataset. The overall impact on frequency distribution of imputing missing data is not much heavy. It clearly increases the frequencies of values around the mean, but the shape of the frequency distribution remains quite similar to that of the original dataset. 

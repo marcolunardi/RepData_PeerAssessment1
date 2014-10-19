@@ -36,8 +36,8 @@ The following R code computes the mean and median total number of steps taken pe
 ```{r,echo=TRUE}
 daymean <- mean(daystepsum[,2])
 daymedian <- median(daystepsum[,2])
-report1 <- paste("Total steps per day: Mean=", round(daymean,2),
-                 ", Median=",daymedian)
+report1 <- paste("Total steps per day:  MEAN=", round(daymean,2),
+                 ", MEDIAN=",daymedian)
 report1
 ```
 
@@ -96,13 +96,13 @@ hist(y, col="light blue",
      xlab="Total number of Steps each Day")
 ```
 
-The following R code computes the mean and median total number of steps taken each day for the new dataset containing the imputed values.
+The following R code computes the mean and median of total number of steps taken each day for the new dataset containing the imputed values.
 
 ```{r,echo=TRUE}
 compldaymean <- mean(compldaystepsum[,3])
 compldaymedian <- median(compldaystepsum[,3])
-report4 <- paste("Filled-in Dataset, total steps per day: Mean=",round(compldaymean,2),
-                 ", Median=",compldaymedian)
+report4 <- paste("Filled-in Dataset, total steps per day:  MEAN=",round(compldaymean,2),
+                 ", MEDIAN=",compldaymedian)
 report4
 ```
 
