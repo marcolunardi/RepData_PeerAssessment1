@@ -1,7 +1,5 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
-author: "Marco Lunardi"
-date: "18 October 2014"
 output: html_document
 ---
 
